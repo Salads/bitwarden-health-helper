@@ -11,9 +11,17 @@ namespace PasswordBreachChecker.ViewModels
     partial class VaultOverviewPageViewModel : ObservableObject
     {
         [ObservableProperty]
-        public partial uint TotalPasswords { get; set; } = 0;
+        public partial VaultStats Stats { get; set; }
 
-        [ObservableProperty]
-        public partial VaultStats Stats { get; set; };
+        public string GetOverviewText()
+        {
+            int totalBreachedPasswords = Stats.BreachedPasswords.Count;
+            int totalDuplicatePasswords = Stats.UniqueDuplicatePasswordsCount;
+            int totalUniquePasswords = Stats.PasswordMap.Count;
+
+            int totalProblemPasswords = totalBreachedPasswords + totalDuplicatePasswords;
+
+            return string.Format("{0}/{0} Passwords have problems!", totalProblemPasswords, totalUniquePasswords);
+        }
     }
 }
