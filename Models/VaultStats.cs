@@ -15,9 +15,16 @@ namespace PasswordBreachChecker.Models
         // hash prefixes (for minimizing API requests)
         public HashSet<string> HashPrefixes { get; private set; } = new HashSet<string>();
 
+        public int UniqueDuplicatePasswordsCount = 0;
+
         public void AddEntry(PasswordEntry entry)
         {
             PasswordMap[entry.Password!].Add(entry);
+            if(PasswordMap[entry.Password!].Count > 1 )
+            {
+                UniqueDuplicatePasswordsCount++;
+            }
+
             HashPrefixes.Add(entry.HashString.AsSpan(0, 5).ToString());
         }
 
@@ -38,15 +45,15 @@ namespace PasswordBreachChecker.Models
             return result;
         }
 
-        public List<PasswordEntry> GetDuplicateEntries()
+        public List<string> GetDuplicateEntries()
         {
-            List<PasswordEntry> result = new List<PasswordEntry>();
+            List<string> result = new List<string>();
 
-            foreach (string breachedPassword in BreachedPasswords)
+            foreach (var pair in PasswordMap)
             {
-                if(PasswordMap[breachedPassword].Count > 1)
+                if(pair.Value.Count > 1)
                 {
-                    result.AddRange(PasswordMap[breachedPassword]);
+                    result.AddRange(pair.Key);
                 }
             }
 
