@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace PasswordBreachChecker.Views
 {
     /// <summary>
-    /// Interaction logic for BreachedPasswordsPage.xaml
+    /// Interaction logic for GenericOneToManyPageView.xaml
     /// </summary>
-    public partial class BreachedPasswordsPage : Page
+    public partial class GenericOneToManyPageView : Page
     {
-        public BreachedPasswordsPage()
+        public GenericOneToManyPageView()
         {
             InitializeComponent();
         }
