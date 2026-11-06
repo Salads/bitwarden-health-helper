@@ -8,6 +8,25 @@
       d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Grid.Row="0" Grid.Column="0" x:Name="passwordsGrid" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding BreachedPasswords}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Breached Passwords" Binding="{Binding Password}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid Grid.Row="0" Grid.Column="1" x:Name="passwordsUsagesGrid" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding BreachedPasswordUsages}">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="Usages" Binding="{Binding Name}" Width="auto"/>
+                <DataGridCheckBoxColumn Header="URL" Binding="{Binding URL}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
