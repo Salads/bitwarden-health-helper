@@ -16,7 +16,7 @@ namespace PasswordBreachChecker.Views
     /// <summary>
     /// Interaction logic for VaultDuplicatesPage.xaml
     /// </summary>
-    public partial class VaultDuplicatesView : Page
+    public partial class VaultDuplicatesView : UserControl
     {
         public VaultDuplicatesView()
         {
