@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordBreachChecker.Views"
         xmlns:vm="clr-namespace:PasswordBreachChecker.ViewModels"
-        mc:Ignorable="d"
-        Title="Vault Report" Height="450" Width="500">
+        Title="Vault Report" 
+        Height="450" Width="1250"
+        WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:VaultResultsViewModel}">
             <local:VaultResultsView />
