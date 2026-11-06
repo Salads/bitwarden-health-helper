@@ -8,10 +8,15 @@ using PasswordBreachChecker.Models;
 
 namespace PasswordBreachChecker.ViewModels
 {
-    partial class VaultOverviewPageViewModel : ObservableObject
+    partial class VaultResultsViewModel : ObservableObject
     {
         [ObservableProperty]
         public partial VaultStats Stats { get; set; }
+
+        internal VaultResultsViewModel(VaultStats vaultStats)
+        {
+            Stats = vaultStats;
+        }
 
         public string GetOverviewText()
         {

@@ -16,9 +16,9 @@ namespace PasswordBreachChecker.Views
     /// <summary>
     /// Interaction logic for VaultOverview.xaml
     /// </summary>
-    public partial class VaultOverviewPage : Page
+    public partial class VaultResultsView : Page
     {
-        public VaultOverviewPage()
+        public VaultResultsView()
         {
             InitializeComponent();
         }

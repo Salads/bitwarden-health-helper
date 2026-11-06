@@ -8,14 +8,14 @@
         mc:Ignorable="d"
         Title="Vault Report" Height="450" Width="500">
     <Window.Resources>
-        <DataTemplate DataType="{x:Type vm:VaultOverviewPageViewModel}">
-            <local:VaultOverviewPage />
+        <DataTemplate DataType="{x:Type vm:VaultResultsViewModel}">
+            <local:VaultResultsView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:VaultBreachesPageViewModel}">
-            <local:VaultBreachesPage />
+        <DataTemplate DataType="{x:Type vm:VaultBreachesViewModel}">
+            <local:VaultBreachesView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:VaultDuplicatesPageViewModel}">
-            <local:VaultDuplicatesPage />
+        <DataTemplate DataType="{x:Type vm:VaultDuplicatesViewModel}">
+            <local:VaultDuplicatesView />
         </DataTemplate>
     </Window.Resources>
     <Grid>
