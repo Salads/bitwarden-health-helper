@@ -19,6 +19,11 @@ namespace PasswordBreachChecker.Models
 
         public void AddEntry(PasswordEntry entry)
         {
+            if(!PasswordMap.ContainsKey(entry.Password!))
+            {
+                PasswordMap[entry.Password!] = new List<PasswordEntry>();
+            }
+
             PasswordMap[entry.Password!].Add(entry);
             if(PasswordMap[entry.Password!].Count > 1 )
             {
