@@ -20,12 +20,12 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="backButton">Back</Button>
-        <Frame x:Name="frame">
+        <Button Grid.Row="0" x:Name="backButton" Width="75" HorizontalAlignment="Left" Margin="8">Back</Button>
+        <Frame Grid.Row="1" x:Name="frame" Margin="16">
             
         </Frame>
     </Grid>
