@@ -1,11 +1,12 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace PasswordBreachChecker.Models
 {
-    internal class VaultStats
+    internal partial class VaultStats : ObservableObject
     {
         public HashSet<string> BreachedPasswords { get; private set; } = new HashSet<string>();
 
@@ -15,7 +16,11 @@ namespace PasswordBreachChecker.Models
         // hash prefixes (for minimizing API requests)
         public HashSet<string> HashPrefixes { get; private set; } = new HashSet<string>();
 
-        public int UniqueDuplicatePasswordsCount = 0;
+        [ObservableProperty]
+        public partial int UniqueDuplicatePasswordsCount { get; private set; } = 0;
+
+        [ObservableProperty]
+        public partial int TotalUniqueProblemPasswords { get; private set; } = 0;
 
         public void AddEntry(PasswordEntry entry)
         {
@@ -28,6 +33,10 @@ namespace PasswordBreachChecker.Models
             if(PasswordMap[entry.Password!].Count > 1 )
             {
                 UniqueDuplicatePasswordsCount++;
+                if(!BreachedPasswords.Contains(entry.Password!))
+                {
+                    TotalUniqueProblemPasswords++;
+                }
             }
 
             HashPrefixes.Add(entry.HashString.AsSpan(0, 5).ToString());
@@ -36,6 +45,10 @@ namespace PasswordBreachChecker.Models
         public void AddBreachedPassword(string password)
         {
             BreachedPasswords.Add(password);
+            if(!PasswordMap.ContainsKey(password) || PasswordMap[password].Count <= 1)
+            {
+                TotalUniqueProblemPasswords++;
+            }
         }
 
         public List<PasswordEntry> GetBreachedEntries()

@@ -13,20 +13,13 @@ namespace PasswordBreachChecker.ViewModels
         [ObservableProperty]
         public partial VaultStats Stats { get; set; }
 
+        [ObservableProperty]
+        public partial string OverviewText { get; private set; }
+
         internal VaultResultsViewModel(VaultStats vaultStats)
         {
             Stats = vaultStats;
-        }
-
-        public string GetOverviewText()
-        {
-            int totalBreachedPasswords = Stats.BreachedPasswords.Count;
-            int totalDuplicatePasswords = Stats.UniqueDuplicatePasswordsCount;
-            int totalUniquePasswords = Stats.PasswordMap.Count;
-
-            int totalProblemPasswords = totalBreachedPasswords + totalDuplicatePasswords;
-
-            return string.Format("{0}/{0} Passwords have problems!", totalProblemPasswords, totalUniquePasswords);
+            OverviewText = string.Format("{0}/{1} Passwords have problems!", Stats.TotalUniqueProblemPasswords, Stats.PasswordMap.Count);
         }
     }
 }
