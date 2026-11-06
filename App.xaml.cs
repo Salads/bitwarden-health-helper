@@ -24,6 +24,7 @@ namespace PasswordBreachChecker
         {
             var services = new ServiceCollection();
 
+            services.AddSingleton<IDialogService, DialogService>();
             services.AddSingleton<IFileSelectorService, FileSelectorNET>();
             services.AddSingleton<IHashService, HashServiceSHA_1>();
             services.AddSingleton<IPasswordBreachCheckService, HaveIBeenPwnedService>();
