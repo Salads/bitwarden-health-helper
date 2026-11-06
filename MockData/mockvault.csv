@@ -1,0 +1,6 @@
+folder,favorite,type,name,notes,fields,reprompt,archivedDate,login_uri,login_username,login_password,login_totp
+,,login,breachedname,,,0,,coolsite.com,cool_user,breached_password,
+,,login,breachedname2,,,0,,coolsite2.com,cool_user2,breached_password,
+,,login,duped,,,0,,coolsite3.com,cool_user3,duped_password,
+,,login,duped2,,,0,,coolsite4.com,cool_user4,duped_password,
+,,login,good,,,0,,coolsite5.com,cool_user5,good_password,
