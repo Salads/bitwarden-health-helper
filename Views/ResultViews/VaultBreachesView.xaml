@@ -19,7 +19,7 @@
         <DataGrid 
             Grid.Row="0" Grid.Column="0" 
             x:Name="passwordsGrid" 
-            AutoGenerateColumns="False" CanUserAddRows="False" 
+            AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"
             ItemsSource="{Binding BreachedPasswords}"
             SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
             <DataGrid.Columns>
@@ -30,7 +30,7 @@
         <DataGrid 
             Grid.Row="0" Grid.Column="1" 
             x:Name="passwordsUsagesGrid" 
-            AutoGenerateColumns="False" CanUserAddRows="False" 
+            AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"
             ItemsSource="{Binding BreachedPasswordUsages}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="auto"/>
