@@ -10,13 +10,6 @@ using System.Windows.Navigation;
 
 namespace PasswordBreachChecker.ViewModels
 {
-    enum Pages
-    {
-        Overview,
-        Breaches,
-        Duplicates
-    }
-
     internal partial class VaultReportDialogViewModel : ObservableObject
     {
         public IFrameNavigationService FrameNavigationService { get; }
@@ -27,18 +20,19 @@ namespace PasswordBreachChecker.ViewModels
 
         public VaultDuplicatesViewModel DuplicatesVM { get; }
 
-        private VaultStats VaultStats { get; set; }
+        [ObservableProperty]
+        public partial VaultStats Stats { get; private set; }
 
         internal VaultReportDialogViewModel(VaultStats vaultStats, IFrameNavigationService frameNavigationService)
         {
-            VaultStats = vaultStats;
+            Stats = vaultStats;
             FrameNavigationService = frameNavigationService;
 
-            ResultsVM = new VaultResultsViewModel(vaultStats);
             BreachesVM = new VaultBreachesViewModel(vaultStats);
             DuplicatesVM = new VaultDuplicatesViewModel(vaultStats);
-
-            FrameNavigationService.NavigateTo(ResultsVM);
+            ResultsVM = new VaultResultsViewModel(vaultStats, 
+                () => FrameNavigationService.NavigateTo(BreachesVM),
+                () => FrameNavigationService.NavigateTo(DuplicatesVM));
         }
 
         public void Start() => FrameNavigationService.NavigateTo(ResultsVM);
