@@ -22,31 +22,15 @@ namespace PasswordBreachChecker.Views
         public VaultReportDialog()
         {
             InitializeComponent();
-        }
 
-        void SetVM(VaultReportDialogViewModel viewModel)
-        {
-            viewModel.PropertyChanged += VaultReportDialog_PropertyChanged;
-            DataContext = viewModel;
-        }
-
-        private void VaultReportDialog_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            var vm = DataContext as VaultReportDialogViewModel;
-            if(e.PropertyName == nameof(VaultReportDialogViewModel.CurrentPage))
+            Loaded += (_, _) =>
             {
-                string newPagUri = "VaultOverviewPage.xaml";
-                if (vm.CurrentPage == Pages.Breaches)
+                if (DataContext is VaultReportDialogViewModel vm)
                 {
-                    newPagUri = "VaultBreachesPage.xaml";
+                    vm.FrameNavigationService.Attach(frame);
+                    vm.Start();
                 }
-                else if(vm.CurrentPage == Pages.Duplicates)
-                {
-                    newPagUri = "VaultDuplicatesPage.xaml";
-                }
-
-                frame.Source = new Uri(newPagUri);
-            }
+            };
         }
     }
 }
