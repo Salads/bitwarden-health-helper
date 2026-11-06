@@ -7,7 +7,9 @@
         xmlns:u="clr-namespace:PasswordBreachChecker.Utility"
         xmlns:vm="clr-namespace:PasswordBreachChecker.ViewModels"
         mc:Ignorable="d"
-        Title="Bitwarden Password Health Helper" Height="450" Width="900">
+        Title="Bitwarden Password Health Helper" 
+        Height="450" Width="900"
+        WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
