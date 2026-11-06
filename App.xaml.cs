@@ -28,6 +28,8 @@ namespace PasswordBreachChecker
             services.AddSingleton<IHashService, HashServiceSHA_1>();
             services.AddSingleton<IPasswordBreachCheckService, HaveIBeenPwnedService>();
 
+            services.AddTransient<IFrameNavigationService, FrameNavigationService>();
+
             return services.BuildServiceProvider();
         }
     }
