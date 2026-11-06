@@ -102,7 +102,7 @@ namespace PasswordBreachChecker.Utility
 
                 string placeholderValue = TextBoxHelper.GetPlaceholder(textBoxControl);
 
-                if (string.IsNullOrEmpty(placeholderValue))
+                if (string.IsNullOrEmpty(placeholderValue) || !string.IsNullOrEmpty(textBoxControl.Text))
                     return;
 
                 // Create the formatted text object
