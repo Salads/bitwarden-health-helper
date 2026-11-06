@@ -42,7 +42,6 @@ namespace PasswordBreachChecker.ViewModels
             {
                 if(e.PropertyName == nameof(SelectedItem))
                 {
-                    BreachedPasswordUsages.Clear();
                     if(SelectedItem != string.Empty && SelectedItem != null)
                     {
                         BreachedPasswordUsages = m_cache[SelectedItem];
