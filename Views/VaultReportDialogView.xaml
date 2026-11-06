@@ -31,8 +31,10 @@
             HorizontalAlignment="Left" 
             Margin="8"
             Command="{Binding GoBackCommand}">Back</Button>
-        <Frame Grid.Row="1" x:Name="frame" Margin="16">
-            
-        </Frame>
+        <Frame 
+            Grid.Row="1" 
+            x:Name="frame" 
+            NavigationUIVisibility="Hidden" 
+            Margin="16" />
     </Grid>
 </Window>
