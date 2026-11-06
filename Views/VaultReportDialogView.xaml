@@ -24,7 +24,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" x:Name="backButton" Width="75" HorizontalAlignment="Left" Margin="8">Back</Button>
+        <Button 
+            Grid.Row="0" 
+            x:Name="backButton" 
+            Width="75" 
+            HorizontalAlignment="Left" 
+            Margin="8"
+            Command="{Binding GoBackCommand}">Back</Button>
         <Frame Grid.Row="1" x:Name="frame" Margin="16">
             
         </Frame>
