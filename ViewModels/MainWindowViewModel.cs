@@ -106,6 +106,7 @@ namespace PasswordBreachChecker.ViewModels
             {
                 int nameIdx = 3;
                 int urlIdx = 8;
+                int loginIdx = 9;
                 int passIdx = 10;
                 bool hasColumnHeaders = true;
 
@@ -124,6 +125,7 @@ namespace PasswordBreachChecker.ViewModels
                     {
                         Name = values[nameIdx],
                         URL = values[urlIdx],
+                        Login = values[loginIdx],
                         Password = values[passIdx],
                         HashString = hs.Hash(values[passIdx])
                     };

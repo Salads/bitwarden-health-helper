@@ -33,6 +33,7 @@ namespace PasswordBreachChecker.ViewModels
                         ResultDetails result = new()
                         {
                             Name = entry.Name,
+                            Login = entry.Login,
                             URL = entry.URL ?? "<>"
                         };
 

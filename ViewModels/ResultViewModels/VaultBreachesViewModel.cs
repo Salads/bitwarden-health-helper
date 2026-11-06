@@ -32,6 +32,7 @@ namespace PasswordBreachChecker.ViewModels
                     ResultDetails resultDetails = new()
                     {
                         Name = entry.Name,
+                        Login = entry.Login,
                         URL = entry.URL ?? "<>"
                     };
                     m_cache[breachedPassword].Add(resultDetails);

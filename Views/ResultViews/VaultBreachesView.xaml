@@ -33,7 +33,8 @@
             AutoGenerateColumns="False" CanUserAddRows="False" 
             ItemsSource="{Binding BreachedPasswordUsages}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Entry Name" Binding="{Binding Name}" Width="auto"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="auto"/>
+                <DataGridTextColumn Header="Login" Binding="{Binding Login}" Width="auto"/>
                 <DataGridTextColumn Header="URL" Binding="{Binding URL}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

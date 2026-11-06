@@ -10,6 +10,8 @@ namespace PasswordBreachChecker.Models
     {
         public string Name { get; set; } = "<>";
 
+        public string Login { get; set; } = "<>";
+
         public string? URL { get; set; } = "<>";
 
         public string? Password { get; set; } = "<>";

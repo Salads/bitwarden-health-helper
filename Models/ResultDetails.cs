@@ -11,6 +11,9 @@ namespace PasswordBreachChecker.Models
         public partial string Name {  get; set; } = string.Empty;
 
         [ObservableProperty]
+        public partial string Login {  get; set; } = string.Empty;
+
+        [ObservableProperty]
         public partial string URL {  get; set; } = string.Empty;
     }
 }
