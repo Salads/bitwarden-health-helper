@@ -17,9 +17,9 @@ namespace PasswordBreachChecker.Views
     /// <summary>
     /// Interaction logic for VaultReportDialog.xaml
     /// </summary>
-    public partial class VaultReportDialog : Window
+    public partial class VaultReportDialogView : Window
     {
-        public VaultReportDialog()
+        public VaultReportDialogView()
         {
             InitializeComponent();
 
