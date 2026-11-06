@@ -16,16 +16,25 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <DataGrid Grid.Row="0" Grid.Column="0" x:Name="passwordsGrid" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding BreachedPasswords}">
+        <DataGrid 
+            Grid.Row="0" Grid.Column="0" 
+            x:Name="passwordsGrid" 
+            AutoGenerateColumns="False" CanUserAddRows="False" 
+            ItemsSource="{Binding BreachedPasswords}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Breached Passwords" Binding="{Binding Password}" Width="*"/>
+                <DataGridTextColumn Header="Breached Passwords" Binding="{Binding .}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid Grid.Row="0" Grid.Column="1" x:Name="passwordsUsagesGrid" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding BreachedPasswordUsages}">
+        <DataGrid 
+            Grid.Row="0" Grid.Column="1" 
+            x:Name="passwordsUsagesGrid" 
+            AutoGenerateColumns="False" CanUserAddRows="False" 
+            ItemsSource="{Binding BreachedPasswordUsages}">
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn Header="Usages" Binding="{Binding Name}" Width="auto"/>
-                <DataGridCheckBoxColumn Header="URL" Binding="{Binding URL}" Width="*"/>
+                <DataGridTextColumn Header="Entry Name" Binding="{Binding Name}" Width="auto"/>
+                <DataGridTextColumn Header="URL" Binding="{Binding URL}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
