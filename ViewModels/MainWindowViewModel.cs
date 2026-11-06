@@ -17,13 +17,21 @@ namespace PasswordBreachChecker.ViewModels
         [Required]
         [CustomValidation(typeof(MainWindowViewModel), nameof(ValidateDataFilePath))]
         [ObservableProperty]
-        public partial string DataFilePath { get; set; }
+        public partial string DataFilePath { get; set; } = string.Empty;
 
         public ObservableCollection<PasswordEntry> Data { get; set; } = new ObservableCollection<PasswordEntry>();
 
         private VaultStats m_vaultStats = new();
 
-        [RelayCommand]
+        public MainWindowViewModel()
+        {
+#if DEBUG_MOCK
+            DataFilePath = Path.Combine(AppContext.BaseDirectory, "MockData", "mockvault.csv");
+            RefreshTable();
+#endif
+        }
+
+        [RelayCommand(CanExecute = nameof(CanBrowse))]
         public void BrowseForFile()
         {
             IFileSelectorService fss = App.Current.Services.GetService<IFileSelectorService>()!;
@@ -33,6 +41,15 @@ namespace PasswordBreachChecker.ViewModels
                 DataFilePath = file;
                 RefreshTable();
             }
+        }
+
+        bool CanBrowse()
+        {
+#if DEBUG_MOCK
+            return false;
+#else
+            return true;
+#endif
         }
 
         [RelayCommand]
@@ -61,7 +78,7 @@ namespace PasswordBreachChecker.ViewModels
             }
 
             // Show Dialog with results.
-            IDialogService ds = App.Current.Services.GetService<DialogService>()!;
+            IDialogService ds = App.Current.Services.GetService<IDialogService>()!;
             ds.ShowVaultReportDialog(m_vaultStats);
         }
 
